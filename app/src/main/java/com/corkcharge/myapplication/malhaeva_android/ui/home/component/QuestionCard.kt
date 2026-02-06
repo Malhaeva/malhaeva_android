@@ -27,13 +27,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.corkcharge.myapplication.malhaeva_android.R
+import com.corkcharge.myapplication.malhaeva_android.data.Question
 
 @Composable
 fun QuestionCard(
     number: Int,
     category: String,
     question: String,
-    onClick: () -> Unit = {}
+    onClick: (Question) -> Unit = {}
 ) {
     Box(
         modifier = Modifier
@@ -43,7 +44,7 @@ fun QuestionCard(
                 shape = RoundedCornerShape(20.dp),
                 clip = false
             )
-            .clickable(onClick = onClick)
+            .clickable(onClick = { onClick(Question(number, question, category)) })
             .clip(RoundedCornerShape(20.dp))
             .background(Color.White)
             .padding(horizontal = 20.dp, vertical = 16.dp)

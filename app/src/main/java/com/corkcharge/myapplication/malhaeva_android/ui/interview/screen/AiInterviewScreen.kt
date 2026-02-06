@@ -21,8 +21,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.corkcharge.myapplication.malhaeva_android.data.Question
+import com.corkcharge.myapplication.malhaeva_android.ui.common.component.CommonTopAppBar
 import com.corkcharge.myapplication.malhaeva_android.ui.theme.Indigo50
 import com.corkcharge.myapplication.malhaeva_android.ui.theme.Indigo600
+import com.corkcharge.myapplication.malhaeva_android.ui.theme.LocalMalhaevaTypography
 
 @Composable
 fun AIInterviewScreen(onSelectQuestion: (Question) -> Unit) {
@@ -33,8 +35,9 @@ fun AIInterviewScreen(onSelectQuestion: (Question) -> Unit) {
     )
 
     Column(modifier = Modifier.padding(20.dp).fillMaxSize()) {
-        Text("AI 면접 연습", fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(bottom = 20.dp))
-        Text("오늘의 추천 질문", fontSize = 16.sp, fontWeight = FontWeight.Bold, color = Color.Gray)
+        CommonTopAppBar()
+        Spacer(modifier = Modifier.height(20.dp))
+        Text("오늘의 추천 질문", style = LocalMalhaevaTypography.current.B_17, color = Color.Gray)
         Spacer(modifier = Modifier.height(10.dp))
 
         todayQuestions.forEach { question ->

@@ -28,18 +28,26 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.corkcharge.myapplication.malhaeva_android.data.CommunityPost
 import com.corkcharge.myapplication.malhaeva_android.ui.community.component.CommentItem
+import com.corkcharge.myapplication.malhaeva_android.ui.theme.Malhaeva_androidTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CommunityDetailScreen(post: CommunityPost, onBack: () -> Unit) {
+    var text by rememberSaveable() { mutableStateOf("") }
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -56,12 +64,13 @@ fun CommunityDetailScreen(post: CommunityPost, onBack: () -> Unit) {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     OutlinedTextField(
-                        value = "", onValueChange = {},
                         placeholder = { Text("댓글을 입력하세요") },
                         modifier = Modifier.weight(1f),
-                        shape = RoundedCornerShape(20.dp)
+                        shape = RoundedCornerShape(20.dp),
+                        value = text,
+                        onValueChange = { text = it }
                     )
-                    IconButton(onClick = {}) {
+                    IconButton(onClick = {text = ""}) {
                         Icon(
                             Icons.AutoMirrored.Filled.Send,
                             contentDescription = "Send",
@@ -102,5 +111,25 @@ fun CommunityDetailScreen(post: CommunityPost, onBack: () -> Unit) {
             CommentItem("익명1", "좋은 정보 감사합니다!")
             CommentItem("취준생2", "저도 비슷하게 답변했어요.")
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun CommunityDetailScreenPreview() {
+    Malhaeva_androidTheme {
+        CommunityDetailScreen(
+            post = CommunityPost(
+                id = 1,
+                type = "review",
+                author = "익명",
+                title = "면접 질문입니다.",
+                content = "실제 면접에서 나왔던 질문입니다. 다들 좋은 결과 있으시길 바랍니다.",
+                likes = 10,
+                comments = 2,
+                time = "1시간 전"
+            ),
+            onBack = {}
+        )
     }
 }

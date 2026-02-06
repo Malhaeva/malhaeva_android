@@ -12,7 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -33,7 +33,7 @@ fun MainScreen(
     onNavigateToInterviewDetail: (Int) -> Unit,
     onNavigateToCommunityDetail: (Int) -> Unit
 ) {
-    var selectedTab by remember { mutableIntStateOf(0) }
+    var selectedTab by rememberSaveable { mutableIntStateOf(0) }
     Scaffold(
         bottomBar = {
             NavigationBar(containerColor = Color.White) {
@@ -61,7 +61,7 @@ fun MainScreen(
     ) { innerPadding ->
         Box(modifier = Modifier.padding(innerPadding)) {
             when (selectedTab) {
-                0 -> HomeScreen(onNavigateToInterview = { selectedTab = 1 })
+                0 -> HomeScreen(onNavigateToInterview = { q -> onNavigateToInterviewDetail(q.id) })
                 1 -> AIInterviewScreen (onSelectQuestion = { q -> onNavigateToInterviewDetail(q.id) })
                 2 -> CommunityScreen(onSelectPost = { p -> onNavigateToCommunityDetail(p.id) })
                 3 -> SettingsScreen()

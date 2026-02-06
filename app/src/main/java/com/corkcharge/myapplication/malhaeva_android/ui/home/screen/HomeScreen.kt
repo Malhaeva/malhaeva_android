@@ -1,7 +1,6 @@
 package com.corkcharge.myapplication.malhaeva_android.ui.home.screen
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -13,7 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -31,7 +29,7 @@ import com.corkcharge.myapplication.malhaeva_android.ui.home.component.StatSumma
 import com.corkcharge.myapplication.malhaeva_android.ui.theme.LocalMalhaevaTypography
 
 @Composable
-fun HomeScreen(onNavigateToInterview: () -> Unit) {
+fun HomeScreen(onNavigateToInterview: (Question) -> Unit) {
     Column(modifier = Modifier
         .fillMaxSize()
         .background(Color.White)) {
@@ -93,10 +91,6 @@ fun HomeScreen(onNavigateToInterview: () -> Unit) {
             }
             Spacer(modifier = Modifier.height(20.dp))
             todayQuestions.forEachIndexed { index, question ->
-                Surface(
-                    modifier = Modifier.fillMaxWidth().padding(vertical = 6.dp).clickable { onNavigateToInterview() },
-                    shape = RoundedCornerShape(16.dp), color = Color.White, shadowElevation = 1.dp
-                ) {
                     QuestionCard(
                         number = index + 1,
                         category = question.category,
@@ -104,7 +98,6 @@ fun HomeScreen(onNavigateToInterview: () -> Unit) {
                         onClick = onNavigateToInterview
                     )
                     Spacer(modifier = Modifier.height(10.dp))
-                }
             }
         }
         Spacer(modifier = Modifier.weight(1f))

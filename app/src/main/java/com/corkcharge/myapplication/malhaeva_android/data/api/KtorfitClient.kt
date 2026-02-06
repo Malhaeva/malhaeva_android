@@ -11,7 +11,7 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
 object HttpClientProvider {
-    private const val BASE_URL = "https://your-api-base-url.com/api/v1/" // TODO: 실제 API 서버 URL로 변경 필요
+    //private const val BASE_URL = "https://your-api-base-url.com/api/v1/" // TODO: 실제 API 서버 URL로 변경 필요
 
     val client: HttpClient = HttpClient(Android) {
         install(ContentNegotiation) {
@@ -30,7 +30,7 @@ object HttpClientProvider {
             level = LogLevel.ALL
         }
         defaultRequest {
-            url(BASE_URL)
+            //url(BASE_URL)
         }
     }
 }

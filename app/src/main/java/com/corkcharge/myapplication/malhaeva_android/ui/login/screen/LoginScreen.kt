@@ -88,7 +88,7 @@ fun LoginScreen(
             painter = painterResource(R.drawable.ic_malhaeva_logo),
             contentDescription = null,
             tint = Color.Unspecified,
-            modifier = Modifier.size(60.dp)
+            modifier = Modifier.size(100.dp)
         )
         Spacer(modifier = Modifier.height(16.dp))
         Text("말해봐", style = LocalMalhaevaTypography.current.B_30, color = Color.Black)

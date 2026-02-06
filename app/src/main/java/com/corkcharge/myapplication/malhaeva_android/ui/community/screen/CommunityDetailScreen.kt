@@ -39,7 +39,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.corkcharge.myapplication.malhaeva_android.data.CommunityPost
+import com.corkcharge.myapplication.malhaeva_android.data.model.CommunityPost
 import com.corkcharge.myapplication.malhaeva_android.ui.community.component.CommentItem
 import com.corkcharge.myapplication.malhaeva_android.ui.theme.Malhaeva_androidTheme
 

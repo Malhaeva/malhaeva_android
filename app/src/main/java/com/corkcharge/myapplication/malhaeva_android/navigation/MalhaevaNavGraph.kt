@@ -8,8 +8,8 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.corkcharge.myapplication.malhaeva_android.data.CommunityPost
-import com.corkcharge.myapplication.malhaeva_android.data.Question
+import com.corkcharge.myapplication.malhaeva_android.data.model.CommunityPost
+import com.corkcharge.myapplication.malhaeva_android.data.model.Question
 import com.corkcharge.myapplication.malhaeva_android.ui.community.screen.CommunityDetailScreen
 import com.corkcharge.myapplication.malhaeva_android.ui.interview.screen.InterviewRecordingScreen
 import com.corkcharge.myapplication.malhaeva_android.ui.interview.screen.InterviewResultScreen

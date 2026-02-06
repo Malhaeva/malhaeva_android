@@ -27,7 +27,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.corkcharge.myapplication.malhaeva_android.R
-import com.corkcharge.myapplication.malhaeva_android.data.Question
+import com.corkcharge.myapplication.malhaeva_android.data.model.Question
 
 @Composable
 fun QuestionCard(

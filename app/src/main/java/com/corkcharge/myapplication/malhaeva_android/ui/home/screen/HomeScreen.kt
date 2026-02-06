@@ -21,7 +21,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.corkcharge.myapplication.malhaeva_android.data.Question
+import com.corkcharge.myapplication.malhaeva_android.data.model.Question
 import com.corkcharge.myapplication.malhaeva_android.ui.common.component.CommonTopAppBar
 import com.corkcharge.myapplication.malhaeva_android.ui.home.component.MissionDdayItem
 import com.corkcharge.myapplication.malhaeva_android.ui.home.component.QuestionCard

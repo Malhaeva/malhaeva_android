@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "727006460134",
+    "project_id": "malhaeva-5a8d0",
+    "storage_bucket": "malhaeva-5a8d0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727006460134:android:632260ce7c8101c0e16327",
+        "android_client_info": {
+          "package_name": "com.corkcharge.myapplication.malhaeva_android"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhnHgcUYhCWdSjJpLY7ZQbsH-SOQ2kXmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

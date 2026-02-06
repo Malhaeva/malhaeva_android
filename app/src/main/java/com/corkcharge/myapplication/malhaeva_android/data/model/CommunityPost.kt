@@ -1,4 +1,4 @@
-package com.corkcharge.myapplication.malhaeva_android.data
+package com.corkcharge.myapplication.malhaeva_android.data.model
 
 data class CommunityPost(
     val id: Int,

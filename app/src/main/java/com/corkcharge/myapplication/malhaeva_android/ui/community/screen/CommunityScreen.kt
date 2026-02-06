@@ -31,7 +31,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.corkcharge.myapplication.malhaeva_android.R
-import com.corkcharge.myapplication.malhaeva_android.data.CommunityPost
+import com.corkcharge.myapplication.malhaeva_android.data.model.CommunityPost
 import com.corkcharge.myapplication.malhaeva_android.ui.common.component.CommonTopAppBar
 import com.corkcharge.myapplication.malhaeva_android.ui.theme.Gray50
 import com.corkcharge.myapplication.malhaeva_android.ui.theme.Indigo50

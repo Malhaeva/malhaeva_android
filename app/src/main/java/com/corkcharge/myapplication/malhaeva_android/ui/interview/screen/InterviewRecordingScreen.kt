@@ -40,7 +40,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.corkcharge.myapplication.malhaeva_android.R
-import com.corkcharge.myapplication.malhaeva_android.data.Question
+import com.corkcharge.myapplication.malhaeva_android.data.model.Question
 import com.corkcharge.myapplication.malhaeva_android.ui.theme.Gray50
 import com.corkcharge.myapplication.malhaeva_android.ui.theme.Indigo600
 import com.corkcharge.myapplication.malhaeva_android.ui.theme.LocalMalhaevaTypography

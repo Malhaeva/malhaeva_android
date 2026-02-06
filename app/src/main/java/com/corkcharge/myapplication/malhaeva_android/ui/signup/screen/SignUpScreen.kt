@@ -63,7 +63,12 @@ fun SignUpScreen(onBack: () -> Unit, onSignUpSuccess: () -> Unit) {
                 .background(Color.White)
                 .verticalScroll(rememberScrollState())
         ) {
-            Text("환영합니다!\n면접 준비를 시작해볼까요?", fontSize = 24.sp, fontWeight = FontWeight.Bold, lineHeight = 32.sp)
+            Text(
+                "환영합니다!\n면접 준비를 시작해볼까요?",
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold,
+                lineHeight = 32.sp
+            )
             Spacer(modifier = Modifier.height(32.dp))
 
             OutlinedTextField(
@@ -104,7 +109,9 @@ fun SignUpScreen(onBack: () -> Unit, onSignUpSuccess: () -> Unit) {
 
             Button(
                 onClick = onSignUpSuccess,
-                modifier = Modifier.fillMaxWidth().height(56.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(56.dp),
                 shape = RoundedCornerShape(12.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Indigo600)
             ) {

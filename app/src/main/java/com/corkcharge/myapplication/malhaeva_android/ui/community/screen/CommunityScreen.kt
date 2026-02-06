@@ -41,35 +41,100 @@ import com.corkcharge.myapplication.malhaeva_android.ui.theme.Indigo600
 fun CommunityScreen(onSelectPost: (CommunityPost) -> Unit) {
 
     val communityPosts = listOf(
-        CommunityPost(1, "review", "취뽀성공", "S전자 임원 면접 후기 공유합니다", "분위기는 생각보다 편안했고 면접관님들이 경청해주시는 느낌이었습니다. 저는 직무 경험 위주로 어필했습니다.", 24, 8, "1시간 전"),
-        CommunityPost(2, "discuss", "개발자지망생", "이 질문 어떻게 대답해야 할까요?", "\"마지막으로 하고 싶은 말\"에서 보통 어떤 걸 물어보시나요? 포부를 말해야 할지 질문을 해야 할지 고민입니다.", 5, 12, "3시간 전"),
-        CommunityPost(3, "review", "면접왕", "AI 역량검사 꿀팁 정리", "표정 관리가 제일 중요합니다. 그리고 마이크 테스트 꼭 미리 하세요.", 56, 21, "어제"),
-        CommunityPost(1, "review", "취뽀성공", "S전자 임원 면접 후기 공유합니다", "분위기는 생각보다 편안했고 면접관님들이 경청해주시는 느낌이었습니다. 저는 직무 경험 위주로 어필했습니다.", 24, 8, "1시간 전"),
-        CommunityPost(1, "review", "취뽀성공", "S전자 임원 면접 후기 공유합니다", "분위기는 생각보다 편안했고 면접관님들이 경청해주시는 느낌이었습니다. 저는 직무 경험 위주로 어필했습니다.", 24, 8, "1시간 전"),
-        CommunityPost(1, "review", "취뽀성공", "S전자 임원 면접 후기 공유합니다", "분위기는 생각보다 편안했고 면접관님들이 경청해주시는 느낌이었습니다. 저는 직무 경험 위주로 어필했습니다.", 24, 8, "1시간 전"),
-        CommunityPost(1, "review", "취뽀성공", "S전자 임원 면접 후기 공유합니다", "분위기는 생각보다 편안했고 면접관님들이 경청해주시는 느낌이었습니다. 저는 직무 경험 위주로 어필했습니다.", 24, 8, "1시간 전"),
+        CommunityPost(
+            1,
+            "review",
+            "취뽀성공",
+            "S전자 임원 면접 후기 공유합니다",
+            "분위기는 생각보다 편안했고 면접관님들이 경청해주시는 느낌이었습니다. 저는 직무 경험 위주로 어필했습니다.",
+            24,
+            8,
+            "1시간 전"
+        ),
+        CommunityPost(
+            2,
+            "discuss",
+            "개발자지망생",
+            "이 질문 어떻게 대답해야 할까요?",
+            "\"마지막으로 하고 싶은 말\"에서 보통 어떤 걸 물어보시나요? 포부를 말해야 할지 질문을 해야 할지 고민입니다.",
+            5,
+            12,
+            "3시간 전"
+        ),
+        CommunityPost(
+            3,
+            "review",
+            "면접왕",
+            "AI 역량검사 꿀팁 정리",
+            "표정 관리가 제일 중요합니다. 그리고 마이크 테스트 꼭 미리 하세요.",
+            56,
+            21,
+            "어제"
+        ),
+        CommunityPost(
+            1,
+            "review",
+            "취뽀성공",
+            "S전자 임원 면접 후기 공유합니다",
+            "분위기는 생각보다 편안했고 면접관님들이 경청해주시는 느낌이었습니다. 저는 직무 경험 위주로 어필했습니다.",
+            24,
+            8,
+            "1시간 전"
+        ),
+        CommunityPost(
+            1,
+            "review",
+            "취뽀성공",
+            "S전자 임원 면접 후기 공유합니다",
+            "분위기는 생각보다 편안했고 면접관님들이 경청해주시는 느낌이었습니다. 저는 직무 경험 위주로 어필했습니다.",
+            24,
+            8,
+            "1시간 전"
+        ),
+        CommunityPost(
+            1,
+            "review",
+            "취뽀성공",
+            "S전자 임원 면접 후기 공유합니다",
+            "분위기는 생각보다 편안했고 면접관님들이 경청해주시는 느낌이었습니다. 저는 직무 경험 위주로 어필했습니다.",
+            24,
+            8,
+            "1시간 전"
+        ),
+        CommunityPost(
+            1,
+            "review",
+            "취뽀성공",
+            "S전자 임원 면접 후기 공유합니다",
+            "분위기는 생각보다 편안했고 면접관님들이 경청해주시는 느낌이었습니다. 저는 직무 경험 위주로 어필했습니다.",
+            24,
+            8,
+            "1시간 전"
+        ),
     )
     Column(
-        modifier = Modifier.fillMaxSize().background(Color.White)
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White)
     ) {
         CommonTopAppBar()
         Spacer(modifier = Modifier.height(10.dp))
-            Row(modifier = Modifier.padding(horizontal = 20.dp)) {
-                FilterChip(
-                    selected = true,
-                    onClick = {},
-                    label = { Text("전체") },
-                    modifier = Modifier.padding(end = 8.dp)
-                )
-                FilterChip(
-                    selected = false,
-                    onClick = {},
-                    label = { Text("면접후기") },
-                    modifier = Modifier.padding(end = 8.dp)
-                )
-                FilterChip(selected = false, onClick = {}, label = { Text("질문토론") })
-            }
-            Spacer(modifier = Modifier.height(10.dp))
+        Row(modifier = Modifier.padding(horizontal = 20.dp)) {
+            FilterChip(
+                selected = true,
+                onClick = {},
+                label = { Text("전체") },
+                modifier = Modifier.padding(end = 8.dp)
+            )
+            FilterChip(
+                selected = false,
+                onClick = {},
+                label = { Text("면접후기") },
+                modifier = Modifier.padding(end = 8.dp)
+            )
+            FilterChip(selected = false, onClick = {}, label = { Text("질문토론") })
+        }
+        Spacer(modifier = Modifier.height(10.dp))
         LazyColumn(modifier = Modifier.fillMaxSize()) {
             items(communityPosts) { post ->
                 Column(
@@ -83,10 +148,12 @@ fun CommunityScreen(onSelectPost: (CommunityPost) -> Unit) {
                         Text(
                             if (post.type == "review") "면접후기" else "질문토론",
                             fontSize = 10.sp, color = Indigo600, fontWeight = FontWeight.Bold,
-                            modifier = Modifier.background(
-                                color = Indigo50,
-                                shape = RoundedCornerShape(4.dp)
-                            ).padding(4.dp)
+                            modifier = Modifier
+                                .background(
+                                    color = Indigo50,
+                                    shape = RoundedCornerShape(4.dp)
+                                )
+                                .padding(4.dp)
                         )
                         Spacer(modifier = Modifier.width(8.dp))
                         Text(post.author, fontSize = 12.sp, color = Color.Gray)

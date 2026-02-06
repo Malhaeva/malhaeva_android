@@ -20,8 +20,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.corkcharge.myapplication.malhaeva_android.R
-import com.corkcharge.myapplication.malhaeva_android.data.CommunityPost
-import com.corkcharge.myapplication.malhaeva_android.data.Question
 import com.corkcharge.myapplication.malhaeva_android.ui.community.screen.CommunityScreen
 import com.corkcharge.myapplication.malhaeva_android.ui.home.screen.HomeScreen
 import com.corkcharge.myapplication.malhaeva_android.ui.interview.screen.AIInterviewScreen
@@ -31,7 +29,8 @@ import com.corkcharge.myapplication.malhaeva_android.ui.theme.Indigo600
 @Composable
 fun MainScreen(
     onNavigateToInterviewDetail: (Int) -> Unit,
-    onNavigateToCommunityDetail: (Int) -> Unit
+    onNavigateToCommunityDetail: (Int) -> Unit,
+    onLogout: () -> Unit
 ) {
     var selectedTab by rememberSaveable { mutableIntStateOf(0) }
     Scaffold(
@@ -45,7 +44,13 @@ fun MainScreen(
                 )
                 items.forEach { item ->
                     NavigationBarItem(
-                        icon = { Icon(painter = painterResource(id = item.second), contentDescription = item.first, modifier = Modifier.size(24.dp)) },
+                        icon = {
+                            Icon(
+                                painter = painterResource(id = item.second),
+                                contentDescription = item.first,
+                                modifier = Modifier.size(24.dp)
+                            )
+                        },
                         label = { Text(item.first, fontSize = 10.sp) },
                         selected = selectedTab == item.third,
                         onClick = { selectedTab = item.third },
@@ -62,9 +67,9 @@ fun MainScreen(
         Box(modifier = Modifier.padding(innerPadding)) {
             when (selectedTab) {
                 0 -> HomeScreen(onNavigateToInterview = { q -> onNavigateToInterviewDetail(q.id) })
-                1 -> AIInterviewScreen (onSelectQuestion = { q -> onNavigateToInterviewDetail(q.id) })
+                1 -> AIInterviewScreen(onSelectQuestion = { q -> onNavigateToInterviewDetail(q.id) })
                 2 -> CommunityScreen(onSelectPost = { p -> onNavigateToCommunityDetail(p.id) })
-                3 -> SettingsScreen()
+                3 -> SettingsScreen(onLogout = onLogout)
             }
         }
     }

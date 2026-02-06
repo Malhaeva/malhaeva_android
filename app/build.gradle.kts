@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
     id("com.google.gms.google-services")
-    id("de.jensklingenberg.ktorfit") version "2.7.1"
+    id("org.jetbrains.kotlin.plugin.serialization") version "2.0.21"
 }
 
 android {
@@ -53,6 +53,7 @@ dependencies {
     implementation(libs.google.services)
     implementation(libs.firebase.messaging.ktx)
     implementation(libs.androidx.datastore.core)
+    implementation("androidx.datastore:datastore-preferences:1.1.1")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -64,13 +65,16 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:34.9.0"))
     implementation("com.google.firebase:firebase-analytics")
 
+    // Koin
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
+
     // Ktor
+    implementation("io.ktor:ktor-client-android:3.3.3")
     implementation("io.ktor:ktor-client-auth:3.3.3")
     implementation("io.ktor:ktor-client-logging:3.3.3")
-    implementation("io.ktor:ktor-client-content-negotiation:3.3.3") // Use latest version
+    implementation("io.ktor:ktor-client-content-negotiation:3.3.3")
     implementation("io.ktor:ktor-serialization-kotlinx-json:3.3.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
 
-    // Ktorfit
-    implementation("de.jensklingenberg.ktorfit:ktorfit-lib:2.7.1")
-    implementation("de.jensklingenberg.ktorfit:ktorfit-converters-response:2.7.1")
 }

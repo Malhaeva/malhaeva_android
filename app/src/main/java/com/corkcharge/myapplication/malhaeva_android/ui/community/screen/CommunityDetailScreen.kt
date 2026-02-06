@@ -39,6 +39,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.corkcharge.myapplication.malhaeva_android.data.model.Comment
 import com.corkcharge.myapplication.malhaeva_android.data.model.CommunityPost
 import com.corkcharge.myapplication.malhaeva_android.ui.community.component.CommentItem
 import com.corkcharge.myapplication.malhaeva_android.ui.theme.Malhaeva_androidTheme
@@ -47,6 +48,15 @@ import com.corkcharge.myapplication.malhaeva_android.ui.theme.Malhaeva_androidTh
 @Composable
 fun CommunityDetailScreen(post: CommunityPost, onBack: () -> Unit) {
     var text by rememberSaveable() { mutableStateOf("") }
+
+    var comments by rememberSaveable {
+        mutableStateOf(
+            listOf(
+                Comment("익명1", "좋은 정보 감사합니다!"),
+                Comment("취준생2", "저도 비슷하게 답변했어요.")
+            )
+        )
+    }
 
     Scaffold(
         topBar = {
@@ -70,7 +80,17 @@ fun CommunityDetailScreen(post: CommunityPost, onBack: () -> Unit) {
                         value = text,
                         onValueChange = { text = it }
                     )
-                    IconButton(onClick = {text = ""}) {
+                    IconButton(
+                        onClick = {
+                            if (text.isNotBlank()) {
+                                comments = comments + Comment(
+                                    author = "익명",
+                                    content = text
+                                )
+                                text = ""
+                            }
+                        }
+                    ) {
                         Icon(
                             Icons.AutoMirrored.Filled.Send,
                             contentDescription = "Send",
@@ -85,6 +105,7 @@ fun CommunityDetailScreen(post: CommunityPost, onBack: () -> Unit) {
             modifier = Modifier
                 .padding(padding)
                 .fillMaxSize()
+                .background(Color.White)
                 .verticalScroll(rememberScrollState())
                 .padding(20.dp)
         ) {
@@ -104,12 +125,14 @@ fun CommunityDetailScreen(post: CommunityPost, onBack: () -> Unit) {
             Spacer(modifier = Modifier.height(30.dp))
             HorizontalDivider()
             Spacer(modifier = Modifier.height(16.dp))
-            Text("댓글 ${post.comments}", fontWeight = FontWeight.Bold)
+            Text("댓글 ${comments.size}", fontWeight = FontWeight.Bold)
 
             // Mock Comments
             Spacer(modifier = Modifier.height(16.dp))
-            CommentItem("익명1", "좋은 정보 감사합니다!")
-            CommentItem("취준생2", "저도 비슷하게 답변했어요.")
+            comments.forEach {
+                Spacer(modifier = Modifier.height(8.dp))
+                CommentItem(it.author, it.content)
+            }
         }
     }
 }

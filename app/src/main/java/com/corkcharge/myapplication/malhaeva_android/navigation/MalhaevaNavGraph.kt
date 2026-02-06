@@ -14,7 +14,7 @@ import com.corkcharge.myapplication.malhaeva_android.ui.community.screen.Communi
 import com.corkcharge.myapplication.malhaeva_android.ui.interview.screen.InterviewRecordingScreen
 import com.corkcharge.myapplication.malhaeva_android.ui.interview.screen.InterviewResultScreen
 import com.corkcharge.myapplication.malhaeva_android.ui.login.screen.LoginScreen
-import com.corkcharge.myapplication.malhaeva_android.ui.signup.screen.SignUpScreen
+import com.corkcharge.myapplication.malhaeva_android.ui.login.screen.SignUpScreen
 
 @Composable
 fun MalhaevaNavGraph(navController: NavHostController) {
